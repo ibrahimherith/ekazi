@@ -1,19 +1,10 @@
-import { Briefcase, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/Button";
+import { navLinks } from "../data/nav-links";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Employers", href: "#" },
-    { name: "Cv Builder", href: "#" },
-    { name: "Salary Calculator", href: "#" },
-    { name: "Pricing", href: "#" },
-    { name: "Post Job", href: "#" },
-  ];
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md shadow-[0_2px_6px_-1px_rgba(0,0,0,0.08)]">
@@ -34,7 +25,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-base text-Blue font-medium text-muted-foreground hover:text-blue-600 hover:text-foreground transition-colors"
               >
                 {link.name}
               </a>
@@ -73,29 +64,29 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-Blue">
+            <div className="flex flex-col text-center gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-md text-Blue font-medium text-muted-foreground hover:text-blue-600 hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
-              <div className="flex flex-col gap-2 pt-4 border-t border-border">
+              <div className="flex flex-col gap-2 pt-4">
                 <Button
                   variant="ghost"
                   size="md"
-                  className="block px-8 py-4 rounded-full text-Orange border border-Orange hover:bg-Orange hover:border-Orange hover:text-white"
+                  className=" px-8 py-4 rounded-full text-white bg-Orange border border-Orange hover:bg-orange-600 hover:border-orange-600 hover:text-white"
                 >
                   Login
                 </Button>
                 <Button
                   size="md"
-                  className="block bg-Blue text-white rounded-full px-8 py-4 hover:bg-blue-700 transition"
+                  className=" bg-Blue text-white rounded-full px-8 py-4 hover:bg-blue-700 transition"
                 >
                   Register
                 </Button>

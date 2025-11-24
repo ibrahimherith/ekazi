@@ -1,51 +1,34 @@
-const partners = [
-  {
-    name: "Google",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-  },
-  {
-    name: "Microsoft",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-  },
-  {
-    name: "Amazon",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-  },
-  {
-    name: "Netflix",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg",
-  },
-  {
-    name: "Meta",
-    logo: "https://1000logos.net/wp-content/uploads/2021/10/Meta-Logo.png",
-  },
-];
+import { logos } from "../data/logos";
 
 const PartnersSection = () => {
-  // Duplicate list for infinite scroll
-  const scrollingLogos = [...partners, ...partners];
-
   return (
-    <section className="py-12 sm:py-16 bg-secondary/30 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative w-full overflow-hidden">
-          <div className="flex items-center gap-12 animate-scroll hover:[animation-play-state:paused]">
-            {scrollingLogos.map((partner, index) => (
-              <div
+    <div className="w-full py-12">
+      <div className="max-w-6xl mx-auto text-center">
+        <div className="overflow-hidden relative">
+          <div className="flex gap-12 animate-slide hover:[animation-play-state:paused]">
+            {logos.concat(logos).map((logo, index) => (
+              <img
                 key={index}
-                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-all grayscale hover:grayscale-0"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
+                src={logo}
+                alt="Logo"
+                className="h-16 w-auto object-contain transition"
+              />
             ))}
           </div>
         </div>
       </div>
-    </section>
+
+      <style>{`
+        @keyframes slide {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-slide {
+          width: fit-content;
+          animation: slide 25s linear infinite;
+        }
+      `}</style>
+    </div>
   );
 };
 

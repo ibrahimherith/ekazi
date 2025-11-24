@@ -1,20 +1,6 @@
-import React from "react";
-import { CheckCircle, Search } from "lucide-react";
-
-const jobItems = [
-  {
-    title: "Tracking officer",
-    subtitle: "Assistant Operation Manager",
-  },
-  {
-    title: "Logistics",
-    subtitle: "Logistics",
-  },
-  {
-    title: "Logistics",
-    subtitle: "Fleet manager",
-  },
-];
+import { CheckCircle } from "lucide-react";
+import { jobItems } from "../data/job-categories";
+import { Button } from "./ui/Button";
 
 export default function JobHighlightSection() {
   return (
@@ -44,9 +30,9 @@ export default function JobHighlightSection() {
               className="w-full outline-none text-Blue placeholder-Blue px-4"
             />
 
-            <button className="bg-Orange text-white font-medium cursor-pointer px-6 py-2 rounded-full flex items-center gap-2 border-none hover:bg-orange-600 transition">
+            <Button className="bg-Orange text-white font-medium px-6 py-2 rounded-full border-none hover:bg-orange-600">
               Subscribe
-            </button>
+            </Button>
           </div>
 
           <div>

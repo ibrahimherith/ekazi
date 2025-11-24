@@ -1,12 +1,7 @@
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Briefcase,
-  GraduationCap,
-  Star,
-} from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { candidate } from "../data/candidates";
+import { Section } from "./ui/CvSection";
+import { SkillGroup } from "./ui/CvSkillGroup";
 
 export default function CandidateProfile() {
   return (
@@ -20,7 +15,7 @@ export default function CandidateProfile() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-gray-50 p-6 sm:p-10 font-sans text-gray-900">
+        <div className="max-w-4xl mx-auto bg-gray-50 p-6 sm:p-10 text-gray-900">
           {/* HEADER */}
           <div className="bg-white p-6 rounded-xl shadow flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
             <div>
@@ -147,32 +142,5 @@ export default function CandidateProfile() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Section({ title, children }) {
-  return (
-    <section>
-      <h2 className="text-xl text-Blue uppercase font-bold mb-3">{title}</h2>
-      {children}
-    </section>
-  );
-}
-
-function SkillGroup({ label, items }) {
-  return (
-    <div className="mb-4">
-      <h4 className="font-semibold">{label}</h4>
-      <div className="flex flex-wrap gap-2 mt-1">
-        {items.map((item, i) => (
-          <span
-            key={i}
-            className="bg-white px-3 py-1 rounded-md border text-sm shadow-sm"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
   );
 }

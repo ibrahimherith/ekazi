@@ -28,7 +28,7 @@ export function Button({
     <Component
       href={href}
       className={cn(
-        "inline-flex items-center justify-center font-medium cursor-pointer transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none",
+        "inline-flex items-center justify-center gap-2 font-medium cursor-pointer transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none",
         variants[variant],
         sizes[size],
         block && "w-full",

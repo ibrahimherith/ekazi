@@ -1,3 +1,11 @@
+import {
+  Briefcase,
+  Building,
+  CheckCircle,
+  GraduationCap,
+  Warehouse,
+} from "lucide-react";
+
 export const tabs = [
   { key: "job", label: "By Job Categories" },
   { key: "industry", label: "By Companies Industry" },
@@ -36,3 +44,36 @@ export const data = {
     ["Transportation", 3],
   ],
 };
+
+export const statistics = [
+  {
+    title: "1453",
+    subtitle: "Employers have recruited with us",
+    icon: Warehouse,
+  },
+  {
+    title: "30667",
+    subtitle: "Job Seekers",
+    icon: GraduationCap,
+  },
+  {
+    title: "13078",
+    subtitle: "Job Posts",
+    icon: Briefcase,
+  },
+];
+
+export const jobItems = [
+  {
+    title: "Tracking officer",
+    subtitle: "Assistant Operation Manager",
+  },
+  {
+    title: "Logistics",
+    subtitle: "Logistics",
+  },
+  {
+    title: "Logistics",
+    subtitle: "Fleet manager",
+  },
+];
