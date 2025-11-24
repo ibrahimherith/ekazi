@@ -1,9 +1,8 @@
 import { Search, MapPin, CheckCircle } from "lucide-react";
 import { Button } from "./ui/Button";
-import { Input } from "./ui/Input";
 import { statistics } from "../data/job-categories";
 
-const HeroSection = () => {
+export default function HeroSection() {
   return (
     <section className="bg-white py-20 pb-10 sm:py-28 sm:pb-14 lg:py-32 lg:pb-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,6 +52,4 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

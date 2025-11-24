@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { aboutLinks, employerLinks, freelancerLinks } from "../data/links";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="w-full py-6 sm:py-12 lg:py-18 bg-Blue text-white">
       <div className="container mx-auto px-4 space-y-6 sm:px-6 lg:px-8">
@@ -90,6 +90,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "./ui/Button";
 import { navLinks } from "../data/nav-links";
 
-const Navbar = () => {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -97,6 +97,4 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

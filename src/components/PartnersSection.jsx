@@ -1,6 +1,6 @@
 import { logos } from "../data/logos";
 
-const PartnersSection = () => {
+export default function PartnersSection() {
   return (
     <div className="w-full py-12">
       <div className="max-w-6xl mx-auto text-center">
@@ -30,6 +30,4 @@ const PartnersSection = () => {
       `}</style>
     </div>
   );
-};
-
-export default PartnersSection;
+}

@@ -11,7 +11,6 @@ const App = () => {
           <Route path="/candidate/:id" element={<CandidatePage />} />
         </Routes>
       </BrowserRouter>
-      ;
     </>
   );
 };
