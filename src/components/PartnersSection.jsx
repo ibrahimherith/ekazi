@@ -1,56 +1,48 @@
 const partners = [
   {
-    name: "TechCorp",
-    logo: "https://via.placeholder.com/120x40/0891b2/ffffff?text=TechCorp",
+    name: "Google",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
   },
   {
-    name: "DesignStudio",
-    logo: "https://via.placeholder.com/120x40/0891b2/ffffff?text=DesignStudio",
+    name: "Microsoft",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
   },
   {
-    name: "GrowthLab",
-    logo: "https://via.placeholder.com/120x40/0891b2/ffffff?text=GrowthLab",
+    name: "Amazon",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
   },
   {
-    name: "InnovateCo",
-    logo: "https://via.placeholder.com/120x40/0891b2/ffffff?text=InnovateCo",
+    name: "Netflix",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg",
   },
   {
-    name: "DataDrive",
-    logo: "https://via.placeholder.com/120x40/0891b2/ffffff?text=DataDrive",
-  },
-  {
-    name: "CloudFirst",
-    logo: "https://via.placeholder.com/120x40/0891b2/ffffff?text=CloudFirst",
+    name: "Meta",
+    logo: "https://1000logos.net/wp-content/uploads/2021/10/Meta-Logo.png",
   },
 ];
 
 const PartnersSection = () => {
-  return (
-    <section className="py-12 sm:py-16 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
-            Trusted by Leading Companies
-          </h2>
-          <p className="text-muted-foreground">
-            Join thousands of employers finding top talent on our platform
-          </p>
-        </div>
+  // Duplicate list for infinite scroll
+  const scrollingLogos = [...partners, ...partners];
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-          {partners.map((partner, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
-            >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="h-10 object-contain"
-              />
-            </div>
-          ))}
+  return (
+    <section className="py-12 sm:py-16 bg-secondary/30 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative w-full overflow-hidden">
+          <div className="flex items-center gap-12 animate-scroll hover:[animation-play-state:paused]">
+            {scrollingLogos.map((partner, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-all grayscale hover:grayscale-0"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

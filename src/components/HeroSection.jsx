@@ -18,34 +18,17 @@ const HeroSection = () => {
           </p>
 
           {/* Search Bar */}
-          <div className="bg-background rounded-2xl shadow-lg p-2 sm:p-3 flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-            <div className="flex-1 flex items-center gap-3 px-4 py-2 bg-secondary/50 rounded-xl">
-              <Search className="w-5 h-5 text-muted-foreground shrink-0" />
-              <Input
-                placeholder="Job title or keyword"
-                className="border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 px-0"
-              />
-            </div>
+          <div className="w-full mx-auto max-w-3xl bg-Blue backdrop-blur-md rounded-full flex items-center gap-4 p-1.5 border-none">
+            <input
+              type="text"
+              placeholder="What are you looking for ..."
+              className="w-full bg-transparent outline-none text-white placeholder-white/70 px-4"
+            />
 
-            <div className="flex-1 flex items-center gap-3 px-4 py-2 bg-secondary/50 rounded-xl">
-              <MapPin className="w-5 h-5 text-muted-foreground -shrink-0" />
-              <Input
-                placeholder="City or remote"
-                className="border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 px-0"
-              />
-            </div>
-
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 rounded-xl"
-            >
-              Search Jobs
-            </Button>
+            <button className="bg-Orange text-white font-medium cursor-pointer px-6 py-2 rounded-full flex items-center gap-2 border-none hover:bg-orange-600 transition">
+              <Search size={18} /> Search
+            </button>
           </div>
-
-          <p className="text-sm text-muted-foreground mt-6">
-            Popular searches: Designer, Developer, Manager, Marketing
-          </p>
         </div>
       </div>
     </section>

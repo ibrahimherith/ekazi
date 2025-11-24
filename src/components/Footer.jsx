@@ -5,47 +5,33 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
+import { aboutLinks, employerLinks, freelancerLinks } from "../data/links";
 
 const Footer = () => {
-  const quickLinks = [
-    { name: "About Us", href: "#about" },
-    { name: "Contact", href: "#contact" },
-    { name: "Privacy Policy", href: "#privacy" },
-    { name: "Terms of Service", href: "#terms" },
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-  ];
-
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer className="w-full py-6 sm:py-12 lg:py-18 bg-Blue text-white">
+      <div className="container mx-auto px-4 space-y-6 sm:px-6 lg:px-8">
+        <div className="grid justify-items-center grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
-                <Briefcase className="w-5 h-5 text-primary-foreground" />
+              <div className="w-25 h-25 rounded-lg flex items-center justify-center">
+                <a href="#">
+                  <img src="../assets/images/logo2.png" alt="" />
+                </a>
               </div>
-              <span className="text-xl font-heading font-bold text-foreground">
-                JobConnect
-              </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Connecting talented professionals with amazing opportunities
-              worldwide.
+              eKazi is An Online Recruitment Management Platform Designed for
+              Employers/Recruiters, Job Seekers and Freelancers.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* About Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-foreground mb-4">About</h3>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
+              {aboutLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -58,31 +44,47 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Media */}
+          {/* Freelancer Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Follow Us</h3>
-            <div className="flex gap-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
+            <h3 className="font-semibold text-foreground mb-4">
+              For Freelancer
+            </h3>
+            <ul className="space-y-2">
+              {freelancerLinks.map((link) => (
+                <li key={link.name}>
                   <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-lg bg-secondary hover:bg-primary flex items-center justify-center transition-colors group"
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
+                    {link.name}
                   </a>
-                );
-              })}
-            </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Employer Links */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-4">For Employer</h3>
+            <ul className="space-y-2">
+              {employerLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} JobConnect. All rights reserved.
+            © {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
       </div>

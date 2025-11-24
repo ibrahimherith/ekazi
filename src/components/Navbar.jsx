@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <div className="w-25 h-25 rounded-lg bg-linear-to-br from-primary to-primary/80 flex items-center justify-center">
               <a href="/">
-                <img src="./assets/images/logo2.png" />
+                <img src="../assets/images/logo2.png" />
               </a>
             </div>
           </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
             </Button>
             <Button
               size="lg"
-              className="bg-Blue text-white rounded-full px-8 py-4 hover:bg-accent/90"
+              className="bg-Blue text-white rounded-full px-8 py-4 hover:bg-blue-700 transition"
             >
               Register
             </Button>
@@ -86,11 +86,18 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="ghost" size="sm">
+                <Button
+                  variant="ghost"
+                  size="md"
+                  className="block px-8 py-4 rounded-full text-Orange border border-Orange hover:bg-Orange hover:border-Orange hover:text-white"
+                >
                   Login
                 </Button>
-                <Button size="sm" className="bg-accent hover:bg-accent/90">
-                  Post Job
+                <Button
+                  size="md"
+                  className="block bg-Blue text-white rounded-full px-8 py-4 hover:bg-blue-700 transition"
+                >
+                  Register
                 </Button>
               </div>
             </div>

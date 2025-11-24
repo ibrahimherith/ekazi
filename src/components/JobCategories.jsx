@@ -1,63 +1,49 @@
-import {
-  Code,
-  Megaphone,
-  Palette,
-  DollarSign,
-  Laptop,
-  Users,
-  Briefcase,
-  Lightbulb,
-} from "lucide-react";
+import React, { useState } from "react";
+import { data, tabs } from "../data/job-categories";
 
-const categories = [
-  { icon: Code, name: "Technology & IT", count: "1,234 jobs" },
-  { icon: Megaphone, name: "Marketing", count: "856 jobs" },
-  { icon: Palette, name: "Design & Creative", count: "623 jobs" },
-  { icon: DollarSign, name: "Finance & Accounting", count: "945 jobs" },
-  { icon: Laptop, name: "Business & Consulting", count: "712 jobs" },
-  { icon: Users, name: "Human Resources", count: "438 jobs" },
-  { icon: Briefcase, name: "Sales", count: "891 jobs" },
-  { icon: Lightbulb, name: "Innovation & R&D", count: "567 jobs" },
-];
+export default function JobCategories() {
+  const [activeTab, setActiveTab] = useState("job");
 
-const JobCategories = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-secondary/30">
+    <section className="w-full py-10 sm:py-16 lg:py-24 bg-Orange text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Browse by Category
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore opportunities across diverse industries and find your
-            perfect match
-          </p>
+        <h2 className="text-start text-3xl font-bold mb-8">Job Categories</h2>
+
+        {/* Tabs */}
+        <div className="flex justify-start mb-6">
+          <div className="flex rounded-xl border border-gray-200 bg-gray-50 p-1">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-4 py-2 text-sm rounded-lg transition-all
+                ${
+                  activeTab === tab.key
+                    ? "bg-white shadow text-blue-600"
+                    : "text-gray-600 hover:text-blue-600"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {categories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <button
+        {/* Category Grid */}
+        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-8">
+            {data[activeTab].map(([title, count], index) => (
+              <a
                 key={index}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-primary hover:shadow-md transition-all duration-300 text-left"
+                href="#"
+                className="text-blue-600 hover:underline text-sm"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
-                  {category.name}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {category.count}
-                </p>
-              </button>
-            );
-          })}
+                {title} ({count})
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default JobCategories;
+}
